@@ -16,7 +16,7 @@ So I wondered if I could implement the process of cloning accounts using the reg
 
 In addition to adding hidden accounts, the tool also adds functions to check hidden accounts and delete hidden accounts, so that both the red team and the blue team can use this tool.
 
-**DISCLAIMER: DO NOT USE THE TOOL FOR ILLEGAL USE, THE DEVELOPER IS NOT RESPONSIBLE OR RESPONSIBLE FOR ANY MISUSE OR DAMAGE. **
+** DISCLAIMER: DO NOT USE THE TOOL FOR ILLEGAL USE, THE DEVELOPER IS NOT RESPONSIBLE OR RESPONSIBLE FOR ANY MISUSE OR DAMAGE. **
 
 # Download Link
 
