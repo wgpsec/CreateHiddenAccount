@@ -4,9 +4,9 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/wgpsec/CreateHiddenAccount)](https://github.com/wgpsec/CreateHiddenAccount) [![GitHub issues](https://img.shields.io/github/issues/wgpsec/CreateHiddenAccount)](https://github.com/wgpsec/CreateHiddenAccount/issues) [![GitHub release](https://img.shields.io/github/release/wgpsec/CreateHiddenAccount)](https://github.com/wgpsec/CreateHiddenAccount/releases)  [![img](https://img.shields.io/badge/author-TeamsSix-blueviolet)](https://github.com/teamssix) [![img](https://img.shields.io/badge/WgpSec-%E7%8B%BC%E7%BB%84%E5%AE%89%E5%85%A8%E5%9B%A2%E9%98%9F-blue)](https://github.com/wgpsec)
 
-![CreateHiddenAccount](https://socialify.git.ci/wgpsec/CreateHiddenAccount/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F49087564&owner=1&pattern=Circuit Board&pulls=1&stargazers=1&theme=Dark)
+![CreateHiddenAccount](https://socialify.git.ci/wgpsec/CreateHiddenAccount/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F49087564&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark)
 
-[中文](https://github.com/wgpsec/CreateHiddenAccount/README_ZH.md) | EN
+[中文](https://github.com/wgpsec/CreateHiddenAccount/blob/master/README_ZH.md) | EN
 
 # Tool Introduction
 
