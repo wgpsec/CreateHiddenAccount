@@ -34,7 +34,7 @@ Use `CreateHiddenAccount.exe -h` for help
 - -p  Set password
 - -u Set username, If the username does not end with a $ sign, a $ sign will be added automatically
 
-![img](file:///Users/dora/Documents/tools/07%E5%86%85%E7%BD%91/17%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/%E9%9A%90%E8%97%8F%E8%B4%A6%E5%8F%B7/CreateHiddenAccount/CreateHiddenAccount/images/1.png?lastModify=1642420470)
+![img](./images/1.png)
 
 # ✨ Example
 
@@ -46,7 +46,7 @@ When using, remember to run under administrator privileges, otherwise it will pr
  CreateHiddenAccount.exe -u teamssix -p Passw0rd
 ```
 
-![img](file:///Users/dora/Documents/tools/07%E5%86%85%E7%BD%91/17%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/%E9%9A%90%E8%97%8F%E8%B4%A6%E5%8F%B7/CreateHiddenAccount/CreateHiddenAccount/images/2.png?lastModify=1642420470)
+![img](./images/2.png)
 
 Check the hidden accounts of the current system.
 
@@ -54,7 +54,7 @@ Check the hidden accounts of the current system.
  CreateHiddenAccount.exe -c
 ```
 
-![img](file:///Users/dora/Documents/tools/07%E5%86%85%E7%BD%91/17%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/%E9%9A%90%E8%97%8F%E8%B4%A6%E5%8F%B7/CreateHiddenAccount/CreateHiddenAccount/images/3.png?lastModify=1642420470)
+![img](./images/3.png)
 
 Delete the teamssix hidden account. After deleting the account, check the hidden account of the current system again. You can see that there is no hidden account.
 
@@ -62,7 +62,7 @@ Delete the teamssix hidden account. After deleting the account, check the hidden
  CreateHiddenAccount.exe -d teamssix
 ```
 
-![img](file:///Users/dora/Documents/tools/07%E5%86%85%E7%BD%91/17%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/%E9%9A%90%E8%97%8F%E8%B4%A6%E5%8F%B7/CreateHiddenAccount/CreateHiddenAccount/images/4.png?lastModify=1642420470)
+![img](./images/4.png)
 
 In the end, if there is any bug to open an issue, the Star will be gone, you know.
 
