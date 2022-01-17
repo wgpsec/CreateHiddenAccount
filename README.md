@@ -6,7 +6,7 @@
 
 ![CreateHiddenAccount](https://socialify.git.ci/wgpsec/CreateHiddenAccount/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F49087564&owner=1&pattern=Circuit Board&pulls=1&stargazers=1&theme=Dark)
 
-[中文](https://github.com/wgpsec/CreateHiddenAccount/readme_zh.md) | EN
+[中文](https://github.com/wgpsec/CreateHiddenAccount/README_ZH.md) | EN
 
 # Tool Introduction
 
