@@ -70,6 +70,8 @@ In the end, if there is any bug to open an issue, the Star will be gone, you kno
 
 - The tool requires administrator privileges to run
 
+- This tool is not guaranteed to work properly on 32-bit systems
+
 - The tool will automatically add the $ character to the username without the $ character. For example, if -u specifies the user name as teamssix, the actual account added is teamssix$; if -u specifies the user name as teamssix$, then the actual added account is or teamssix$
 
   >  The purpose of this is because if the user name does not have the $ character, then hiding the user is meaningless. If you just want to add an account, just use net user directly.
