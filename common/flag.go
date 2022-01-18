@@ -11,22 +11,33 @@ import (
 	"strings"
 )
 
-func Flag() (string, string, string, bool) {
+func Flag() (string, string, string, string, bool, bool) {
 	logo()
 	var username string
 	var password string
-	var check bool
+	var cloneuser string
 	var deleteusername string
+	var check bool
+	var onlycreate bool
+	var version bool
 	flag.StringVar(&username, "u", "", "Set username, If the username does not end with a $ sign, a $ sign will be added automatically")
 	flag.StringVar(&password, "p", "", "Set password")
 	flag.StringVar(&deleteusername, "d", "", "Set delete username, If the username does not end with a $ sign, a $ sign will be added automatically")
 	flag.BoolVar(&check, "c", false, "Check the hidden accounts of the current system")
+	flag.StringVar(&cloneuser, "cu", "Administrator", "Set clone user")
+	flag.BoolVar(&onlycreate, "oc", false, "Only create hidden users, do not clone users by modifying the registry")
+	flag.BoolVar(&version, "v", false, "View version")
 	flag.Parse()
 
 	CheckUserName(username)
 	CheckUserName(deleteusername)
+	CheckUserName(cloneuser)
+	if version {
+		fmt.Println("[+] Current Version: v0.2")
+		os.Exit(3)
+	}
 	if check {
-		return "", "", "", check
+		return "", "", "", "", false, check
 	} else if username == "" && password == "" && deleteusername == "" {
 		flag.Usage()
 		os.Exit(3)
@@ -48,7 +59,7 @@ func Flag() (string, string, string, bool) {
 		}
 	}
 
-	return username, password, deleteusername, check
+	return username, password, deleteusername, cloneuser, onlycreate, check
 }
 
 func CheckUserName(username string) {
@@ -71,7 +82,7 @@ func logo() {
 	fmt.Println(`
 ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╦ ╦┬┌┬┐┌┬┐┌─┐┌┐┌  ╔═╗┌─┐┌─┐┌─┐┬ ┬┌┐┌┌┬┐
 ║  ├┬┘├┤ ├─┤ │ ├┤   ╠═╣│ ││ ││├┤ │││  ╠═╣│  │  │ ││ ││││ │ 
-╚═╝┴└─└─┘┴ ┴ ┴ └─┘  ╩ ╩┴─┴┘─┴┘└─┘┘└┘  ╩ ╩└─┘└─┘└─┘└─┘┘└┘ ┴
+╚═╝┴└─└─┘┴ ┴ ┴ └─┘  ╩ ╩┴─┴┘─┴┘└─┘┘└┘  ╩ ╩└─┘└─┘└─┘└─┘┘└┘ ┴  v0.2
                        Team: WgpSec
                      Author: TeamsSix
                     Blog: teamssix.com                    

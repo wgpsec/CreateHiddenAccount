@@ -16,7 +16,7 @@ So I wondered if I could implement the process of cloning accounts using the reg
 
 In addition to adding hidden accounts, the tool also adds functions to check hidden accounts and delete hidden accounts, so that both the red team and the blue team can use this tool.
 
-**DISCLAIMER: DO NOT USE THE TOOL FOR ILLEGAL USE, THE DEVELOPER IS NOT RESPONSIBLE OR RESPONSIBLE FOR ANY MISUSE OR DAMAGE.**
+**DISCLAIMER: DO NOT USE THE TOOL FOR ILLEGAL USE, THE DEVELOPER IS NOT RESPONSIBLE OR RESPONSIBLE FOR ANY MISUSE OR DAMAGE. **
 
 # Download Link
 
@@ -30,9 +30,12 @@ In addition to adding hidden accounts, the tool also adds functions to check hid
 Use `CreateHiddenAccount.exe -h` for help
 
 - -c  Check the hidden accounts of the current system
+- -cu Set clone user (default "Administrator")
 - -d  Set delete username, If the username does not end with a $ sign, a $ sign will be added automatically
+- -oc Only create hidden users, do not clone users by modifying the registry
 - -p  Set password
 - -u Set username, If the username does not end with a $ sign, a $ sign will be added automatically
+- -v View version
 
 ![img](./images/1.png)
 
@@ -48,21 +51,37 @@ When using, remember to run under administrator privileges, otherwise it will pr
 
 ![img](./images/2.png)
 
+Select the username you want to clone
+
+```
+CreateHiddenAccount.exe -u teamssix2 -p Passw0rd -cu test
+```
+
+![](./images/3.png)
+
+Only create hidden users, do not modify the registry
+
+```
+CreateHiddenAccount.exe -u teamssix3 -p Passw0rd -oc
+```
+
+![](./images/4.png)
+
 Check the hidden accounts of the current system.
 
 ```
  CreateHiddenAccount.exe -c
 ```
 
-![img](./images/3.png)
+![img](./images/5.png)
 
-Delete the teamssix hidden account. After deleting the account, check the hidden account of the current system again. You can see that there is no hidden account.
+Delete the teamssix hidden account
 
 ```
  CreateHiddenAccount.exe -d teamssix
 ```
 
-![img](./images/4.png)
+![img](./images/6.png)
 
 In the end, if there is any bug to open an issue, the Star will be gone, you know.
 
@@ -72,8 +91,21 @@ In the end, if there is any bug to open an issue, the Star will be gone, you kno
 
 - This tool is not guaranteed to work properly on 32-bit systems
 
+- On the domain controller machine, this tool will only add hidden users and will not modify the registry, because on the domain controller machine, user information is not stored in the registry.
+
+- If the control panel shows that there is a hidden user, but both tools and net user show that the user does not exist, then when the computer restarts, the hidden user in the control panel will disappear.
+
 - The tool will automatically add the $ character to the username without the $ character. For example, if -u specifies the user name as teamssix, the actual account added is teamssix$; if -u specifies the user name as teamssix$, then the actual added account is or teamssix$
 
   >  The purpose of this is because if the user name does not have the $ character, then hiding the user is meaningless. If you just want to add an account, just use net user directly.
 
-- On the domain controller machine, this tool will only add hidden users and will not modify the registry, because on the domain controller machine, user information is not stored in the registry.
+# Changelog
+
+## v0.2 2021.1.18
+
+* Enhanced the ability to detect hidden accounts
+* Added ability to select clone user
+* Added the function of only creating hidden users without modifying the registry
+* Added tool version display
+
+## v0.1 2021.1.17

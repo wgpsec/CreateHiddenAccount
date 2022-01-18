@@ -5,7 +5,9 @@
 package core
 
 import (
+	"../common"
 	"fmt"
+	registry "github.com/golang/sys/windows/registry"
 	"strings"
 )
 
@@ -29,6 +31,25 @@ func CheckHiddenAccountsSub() []string {
 	for _, i := range usernames {
 		if strings.Contains(i.Username, "$") {
 			HiddenAccounts = append(HiddenAccounts, i.Username)
+		}
+	}
+	if !common.DetermineDC() {
+		common.DetermineRegistryPermissions("SAM\\SAM\\Domains\\Account\\Users\\Names")
+		key, _ := registry.OpenKey(registry.LOCAL_MACHINE, "SAM\\SAM\\Domains\\Account\\Users\\Names", registry.ALL_ACCESS)
+		defer key.Close()
+		v, _ := key.ReadSubKeyNames(0)
+		for _, j := range v {
+			if strings.Contains(j, "$") {
+				n := 0
+				for _, k := range HiddenAccounts {
+					if k == j {
+						n++
+					}
+				}
+				if n == 0 {
+					HiddenAccounts = append(HiddenAccounts, j)
+				}
+			}
 		}
 	}
 	return HiddenAccounts

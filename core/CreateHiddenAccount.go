@@ -8,11 +8,15 @@ import (
 	"../common"
 )
 
-func CreateHiddenAccount(username, password string) {
+func CreateHiddenAccount(username, password, cloneuser string, onlycreate bool) {
 	if common.DetermineDC() {
 		UserAdd(username, password)
 	} else {
-		UserAdd(username, password)
-		EditRegistry(username)
+		if onlycreate {
+			UserAdd(username, password)
+		} else {
+			UserAdd(username, password)
+			EditRegistry(username, cloneuser)
+		}
 	}
 }

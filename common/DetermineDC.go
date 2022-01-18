@@ -1,3 +1,7 @@
+// Author : TeamsSix
+// Blog : teamssix.com
+// WeChat Official Accounts: TeamsSix
+
 package common
 
 import (
