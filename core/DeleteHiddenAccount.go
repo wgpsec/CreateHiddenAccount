@@ -5,9 +5,9 @@
 package core
 
 import (
-	"../common"
+	"wgpsec.org/createHiddenAccount/common"
 	"fmt"
-	registry "github.com/golang/sys/windows/registry"
+	registry "golang.org/x/sys/windows/registry"
 	"strconv"
 	"strings"
 	"syscall"
