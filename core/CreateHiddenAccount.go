@@ -5,7 +5,7 @@
 package core
 
 import (
-	"../common"
+	"wgpsec.org/createHiddenAccount/common"
 )
 
 func CreateHiddenAccount(username, password, cloneuser string, onlycreate bool) {

@@ -5,8 +5,8 @@
 package main
 
 import (
-	"./common"
-	"./core"
+	"wgpsec.org/createHiddenAccount/common"
+	"wgpsec.org/createHiddenAccount/core"
 )
 
 func main() {

@@ -6,7 +6,7 @@ package common
 
 import (
 	"fmt"
-	registry "github.com/golang/sys/windows/registry"
+	registry "golang.org/x/sys/windows/registry"
 	"io/ioutil"
 	"os"
 	"os/exec"
